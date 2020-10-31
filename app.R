@@ -1,4 +1,6 @@
 
+library(dash)
+
 app <- Dash$new()
 
 app$layout(htmlDiv(list(htmlH2('Hello World'),

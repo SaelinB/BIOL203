@@ -2,9 +2,9 @@ FROM plotly/heroku-docker-r:3.6.2_heroku18
 
 # on build, copy application files
 COPY . /app/
-  
-  # for installing additional dependencies etc.
-  RUN if [ -f '/app/onbuild' ]; then bash /app/onbuild; fi; 
+
+# for installing additional dependencies etc.
+RUN if [ -f '/app/onbuild' ]; then bash /app/onbuild; fi; 
 
 # look for /app/apt-packages and if it exists, install the packages contained
 RUN if [ -f '/app/apt-packages' ]; then apt-get update -q && cat apt-packages | xargs apt-get -qy install && rm -rf /var/lib/apt/lists/*; fi;              

@@ -9,14 +9,14 @@ library(maps)
 library(dashTable)
 library(reshape2)
 
-
 #Read data--------------------------------------------
-W5  <- read_csv("W5_OTU_Distributions_filtered2.csv")
-W1 <- read_csv("W1_Sample_Coordinates.csv")
-total_ab_euk <- read_csv("total_ab_euk.csv")
-ID_seqs_genus <- read_csv("ID_seqs2.csv") 
+W5  <- read_csv("W5_OTU_Distributions_filtered.csv") #Filtered to only sequences used in lab, for space
+W1 <- read_csv("W1_Sample_Coordinates.csv")  #Coordinates of samples
+total_ab_euk <- read_csv("total_ab_euk.csv")  # Abundances
+ID_seqs_genus <- read_csv("ID_seqs.csv")  # PR2 V9 ID and corresponding sequence, students input their mystery sequence 
 W1$Sample <- as.factor(W1$Sample)
 world_map <- map_data("world")
+
 
 
 seqs_ID <- ID_seqs_genus %>% select(-Genus) %>% as.tibble() #For label-key table (as seqs - IDs)
